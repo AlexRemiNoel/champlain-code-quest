@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Hackathon Code Quest Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This website was quickly made to setup advertisement for the Champlain Code Quest
 
 ## Available Scripts
 
