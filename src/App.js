@@ -1,24 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const routeChange = () => {
+    const path = 'https://forms.gle/LXMuzZaSp6gxr9UX9';
+    window.location.href = path;
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header>
+        <h1>Champlain Code Quest</h1>
       </header>
-    </div>
+      <section className="hero">
+        <h2>Join us novembre 13</h2>
+        <p>Join the Champlain Code Quest Hackathon — where innovation, creativity, and teamwork collide. Build something incredible in 24 hours!</p>
+        <button onClick={routeChange}>Register Now</button>
+      </section>
+      <section className="info" id="about">
+        <h3>About the Event</h3>
+        <p>The Champlain Code Quest brings together coders, designers, and innovators from across the region to tackle exciting challenges, collaborate, and showcase their skills. Whether you're a first-time hacker or a seasoned pro, there's a place for you here.</p>
+      </section>
+      <footer>
+        © 2025 Champlain College • Code Quest Hackathon
+      </footer>
+    </>
   );
 }
 

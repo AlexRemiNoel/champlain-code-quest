@@ -1,38 +1,104 @@
-.App {
-  text-align: center;
-}
+:root {
+      --orange: #ff7a00;
+      --black: #0b0b0b;
+      --gray: #1a1a1a;
+      --white: #f5f5f5;
+    }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+    }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+    header {
+      text-align: center;
+      display: block;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 4rem;
+      background-color: var(--gray);
+      border-bottom: 2px solid var(--orange);
+    }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--orange);
+      letter-spacing: 1px;
+      font-size: 1.8rem;
+    }
 
-.App-link {
-  color: #61dafb;
-}
+    nav a {
+      color: var(--white);
+      margin-left: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+    nav a:hover {
+      color: var(--orange);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 8rem 2rem;
+      background: linear-gradient(135deg, #ff7a00 20%, #0b0b0b 100%);
+    }
+
+    .hero h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero button {
+      background-color: var(--black);
+      border: 2px solid var(--orange);
+      color: var(--orange);
+      padding: 0.8rem 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .hero button:hover {
+      background-color: var(--orange);
+      color: var(--black);
+    }
+
+    .info {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .info h3 {
+      color: var(--orange);
+      margin-bottom: 1rem;
+      font-size: 2rem;
+    }
+
+    .info p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--gray);
+      border-top: 2px solid var(--orange);
+      font-size: 0.9rem;
+      color: #bbb;
+    }
