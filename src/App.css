@@ -43,6 +43,8 @@
     }
 
     a{
+      font-family: 'Orbitron', sans-serif;
+      font-size: large;
       padding-right: 6%;
     }
 
@@ -53,7 +55,7 @@
     .gradient-background {
       text-align: center;
       padding: 8rem 2rem;
-      background:  #e7a042;
+      background: linear-gradient(0deg, #162130 20%, #e7a042 90%);
     }
 
     .orange-background {
@@ -76,7 +78,7 @@
 
     .gradient-background button {
       background-color: var(--black);
-      border: 2px solid var(--orange);
+      border: 0.1em solid var(--orange);
       color: var(--orange);
       padding: 0.8rem 2rem;
       font-size: 1.1rem;
@@ -94,7 +96,7 @@
     .info {
       padding: 4rem 2rem;
       text-align: center;
-      background: linear-gradient(0deg, #162130 5%, #e7a042 100%);
+      background: #162130;
     }
 
     .info h3 {
@@ -166,4 +168,25 @@
 
     .modal p {
       color: #ddd;
+    }
+
+    li{
+      text-align: justify;
+      padding-left: 23%;
+     list-style-type: none;
+     padding-right: 8%;
+    }
+    table{
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
+    }
+
+    td{
+       padding-left: 15px;
+       padding: auto;
+    }
+
+    .mainButton{
+      border: 0.5em solid var(--orange);
     }

@@ -3,8 +3,16 @@ import { useState } from 'react';
 
 function App() {
   
-  const routeChange = () => {
+  const routeChangeForm = () => {
     const path = 'https://forms.gle/LXMuzZaSp6gxr9UX9';
+    window.location.href = path;
+  };
+  const routeChangeInsta = () => {
+    const path = 'https://www.instagram.com/champlain_programming_club/';
+    window.location.href = path;
+  };
+  const routeChangeDiscord = () => {
+    const path = 'https://discord.gg/P8rdJ4XmJB';
     window.location.href = path;
   };
 
@@ -26,12 +34,15 @@ function App() {
 
   return (
     <>
+    <head>
+    <link rel="icon" type="image/x-icon" href="./logo192.ico"/>
+    </head>
       <header>
         <h1>Champlain Code Quest</h1>
         <div className='nav-links'>
         <a onClick={() => openModal('aboutModal')}>About</a>
         <a onClick={() => openModal('scheduleModal')}>Schedule</a>
-        <a onClick={() => openModal('registerModal')}>Register</a>
+        <a onClick={routeChangeForm}>Register</a>
         <a onClick={() => openModal('contactModal')}>Contact</a>
         </div>
       </header>
@@ -50,40 +61,79 @@ function App() {
        <div id="aboutModal" className="modal" style={{display: activeModal === 'aboutModal' ? 'flex' : 'none'}} onClick={handleOutsideClick}>
           <div className="modal-content">
             <span className="close-btn" onClick={closeModal}>&times;</span>
-            {/* ...rest of aboutModal content... */}
+            {<div><h4>About:</h4>
+              <p>
+              Code-Quest Champlain aims to be a beginner friendly event where college students can improve and put into practice their programming knowledge.<br/><br/> </p>
+              <h4>3 prize categories:</h4>
+              <ul>  
+                <li>Best overall project</li>
+                <li>Most creative project</li>
+                <li>Best beginner project</li>
+             
+                </ul>
+             </div>}
           </div>
         </div>
 
         <div id="scheduleModal" className="modal" style={{display: activeModal === 'scheduleModal' ? 'flex' : 'none'}} onClick={handleOutsideClick}>
           <div className="modal-content">
             <span className="close-btn" onClick={closeModal}>&times;</span>
-            {/* ...rest of scheduleModal content... */}
+            {<div>
+
+             <h4>Schedule</h4> 
+<h5>Thursday, November 13th, 2025</h5>
+<table>
+  <tbody>
+    <tr>
+      <td>Opening Ceremony:</td>
+      <td>8:00 AM - 8:30 AM</td>
+    </tr>
+    <tr>
+      <td>Coding Time:</td>
+      <td>8:30 AM - 8:00 PM</td>
+    </tr>
+    <tr>
+      <td>Lunch Break:</td>
+      <td>12:00 PM - 12:30 PM</td>
+    </tr>
+    <tr>
+      <td>Closing Ceremony:</td>
+      <td>8:30 PM - 10:00 PM</td>
+    </tr>
+  </tbody>
+</table>
+            </div>}
           </div>
         </div>
 
-        <div id="registerModal" className="modal" style={{display: activeModal === 'registerModal' ? 'flex' : 'none'}} onClick={handleOutsideClick}>
-          <div className="modal-content">
-            <span className="close-btn" onClick={closeModal}>&times;</span>
-            {/* ...rest of registerModal content... */}
-          </div>
-        </div>
+  
 
         <div id="contactModal" className="modal" style={{display: activeModal === 'contactModal' ? 'flex' : 'none'}} onClick={handleOutsideClick}>
           <div className="modal-content">
             <span className="close-btn" onClick={closeModal}>&times;</span>
-            {/* ...rest of contactModal content... */}
+            {<div><h4>Contact us:</h4>
+              <table>
+              <tbody>
+              <tr><td>Discord: </td><td> Join our discord  </td><td><button onClick={routeChangeDiscord}>here</button><br/></td></tr>
+              <tr><td>Instagram: </td><td>Follow us  </td><td><button onClick={routeChangeInsta}>here</button><br/></td></tr>
+              </tbody>
+              </table>
+              </div>}
           </div>
         </div>
 
 
         <h2>Join on us November 13</h2>
         <p>Join the Champlain Code Quest Hackathon — where innovation, creativity, and teamwork collide. Build something incredible in 24 hours!</p>
-        <button onClick={routeChange}>Register Now</button>
+        <button className="mainButton" onClick={() => openModal('aboutModal')}>Learn More</button>
+        <button className="mainButton" onClick={routeChangeForm
+      
+        }>Register Now</button>
       </section>
       </div>
       <section className="info" id="about">
         <h3>About the Event</h3>
-        <p>The Champlain Code Quest brings together coders, designers, and innovators from across the region to tackle exciting challenges, collaborate, and showcase their skills. Whether you're a first-time hacker or a seasoned pro, there's a place for you here.</p>
+        <p>The Champlain Code Quest brings together coders, students, innovators and entrepreneur from across the college to tackle exciting challenges, collaborate, and showcase their skills. Whether you're a first-time programmer or a 10x enginner, there's a place for you here to participate.</p>
       </section>
       <footer>
         © 2025 Champlain College • Code Quest Hackathon
