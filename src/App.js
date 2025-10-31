@@ -135,6 +135,10 @@ function App() {
         <h3>About the Event</h3>
         <p>The Champlain Code Quest brings together coders, students, innovators and entrepreneur from across the college to tackle exciting challenges, collaborate, and showcase their skills. Whether you're a first-time programmer or a 10x enginner, there's a place for you here to participate.</p>
       </section>
+        <section className="info" id="about">
+        <h3>Our Partner:</h3>
+        <img src='./tail.png' alt='tail-ed'/>
+      </section>
       <footer>
         © 2025 Champlain College • Code Quest Hackathon
       </footer>
