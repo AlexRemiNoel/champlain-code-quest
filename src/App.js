@@ -138,6 +138,7 @@ function App() {
         <section className="info" id="about">
         <h3>Our Partner:</h3>
         <img src='./tail.png' alt='tail-ed'/>
+        <img src='./vimpact.png' alt='visual-impact'/>
       </section>
       <footer>
         © 2025 Champlain College • Code Quest Hackathon
