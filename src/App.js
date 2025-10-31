@@ -86,7 +86,7 @@ function App() {
   <tbody>
     <tr>
       <td>Opening Ceremony:</td>
-      <td>8:00 AM - 8:30 AM</td>
+      <td>8:00 AM - 9:00 AM</td>
     </tr>
     <tr>
       <td>Coding Time:</td>
@@ -94,7 +94,7 @@ function App() {
     </tr>
     <tr>
       <td>Lunch Break:</td>
-      <td>12:00 PM - 12:30 PM</td>
+      <td>12:00 PM - 13:00 PM</td>
     </tr>
     <tr>
       <td>Closing Ceremony:</td>
