@@ -98,7 +98,7 @@ function App() {
     </tr>
     <tr>
       <td>Closing Ceremony:</td>
-      <td>8:30 PM - 10:00 PM</td>
+      <td>6:30 PM - 8:00 PM</td>
     </tr>
   </tbody>
 </table>
@@ -135,10 +135,22 @@ function App() {
         <h3>About the Event</h3>
         <p>The Champlain Code Quest brings together coders, students, innovators and entrepreneur from across the college to tackle exciting challenges, collaborate, and showcase their skills. Whether you're a first-time programmer or a 10x enginner, there's a place for you here to participate.</p>
       </section>
-        <section className="info" id="about">
-        <h3>Our Partner:</h3>
+        <div className='faq' id='faq'>
+        <h3>FAQ</h3>
+        <h4>How much does it cost?</h4>
+        <p>It’s totally free! and there will be free pizza!!</p>
+         <h4>What is the theme?</h4>
+        <p>The theme will be revealed during the opening ceremony</p>
+         <h4>Do I need to know how to program?</h4>
+        <p>No, as long as you have even the slightest interest, you are welcome to come to have fun. Workshops will be held to teach the participants about various programming concepts during the hackathon itself!</p>
+           <h4>How long will it last?</h4>
+        <p>The Code Quest will be held from 8am to 8pm</p>
+        <h4>HWhen and where is it?</h4>
+        <p>The Code Quest will be held at Champlain College on November 13th</p></div>
+       <section className="info" id="about">
+         <h3>Our Partner:</h3>
         <img src='./tail.png' alt='tail-ed'/>
-        <img src='./vimpact.png' alt='visual-impact'/>
+        <img src='./vimpact.png' alt='visual-impact' width={300}/>
       </section>
       <footer>
         © 2025 Champlain College • Code Quest Hackathon

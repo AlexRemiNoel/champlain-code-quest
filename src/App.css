@@ -190,3 +190,14 @@
     .mainButton{
       border: 0.5em solid var(--orange);
     }
+
+    .faq{
+      text-align: left;
+      padding-left: 30%;
+      padding-right: 20%;
+
+    }
+
+    .faq h3{
+      text-align: center;
+    }
