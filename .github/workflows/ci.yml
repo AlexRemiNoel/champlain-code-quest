@@ -12,7 +12,6 @@ on:
       - '**/*.css'
       - 'public/**'
       - 'package.json'
-      - 'package-lock.json'
       - 'Dockerfile'
       - 'nginx.conf'
       - '.github/workflows/**'
@@ -27,7 +26,6 @@ on:
       - '**/*.css'
       - 'public/**'
       - 'package.json'
-      - 'package-lock.json'
       - '.github/workflows/**'
 
 concurrency:
@@ -43,9 +41,22 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
-      - run: npm ci
+
+      - name: Cache npm cache
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-cache-${{ runner.os }}-${{ steps.nodever.outputs.ver || '20' }}-${{ hashFiles('package.json') }}
+          restore-keys: |
+            npm-cache-${{ runner.os }}-${{ steps.nodever.outputs.ver || '20' }}-
+            npm-cache-${{ runner.os }}-
+
+      - run: npm config set cache ~/.npm
+
+      - run: npm install --no-audit --no-fund
+
       - run: npm run build
+
       - if: ${{ always() }}
         uses: actions/upload-artifact@v4
         with:
