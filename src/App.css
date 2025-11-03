@@ -12,46 +12,6 @@ body {
   color: var(--white);
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem 4rem;
-  background-color: var(--gray);
-  border-bottom: 2px solid var(--orange);
-}
-
-header h1 {
-  font-family: 'Orbitron', sans-serif;
-  color: var(--orange);
-  letter-spacing: 1px;
-  font-size: 1.8rem;
-}
-
-.nav-links {
-  display: flex;
-  align-items: right;
-}
-
-nav a {
-  color: var(--white);
-  margin-left: 2rem;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s;
-  
-}
-
-a{
-  font-family: 'Orbitron', sans-serif;
-  font-size: large;
-  padding-right: 6%;
-}
-
-nav a:hover {
-  color: var(--orange);
-}
-
 .gradient-background {
   text-align: center;
   padding: 8rem 2rem;
@@ -60,9 +20,8 @@ nav a:hover {
 
 .orange-background {
   text-align: center;
-    background: #e7a042;
+  background: #e7a042;
 }
-
 
 .gradient-background h2 {
   font-family: 'Orbitron', sans-serif;
@@ -121,85 +80,8 @@ footer {
   color: #bbb;
 }
 
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: var(--gray);
-  border: 2px solid var(--orange);
-  border-radius: 8px;
-  padding: 2rem;
-  width: 80%;
-  max-width: 600px;
-  position: relative;
-  animation: popin 0.3s ease;
-}
-
-@keyframes popin {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  color: var(--orange);
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.modal h3 {
-  color: var(--orange);
-  margin-top: 0;
-  font-size: 1.8rem;
-}
-
-.modal p {
-  color: #ddd;
-}
-
-li{
-  text-align: justify;
-  padding-left: 23%;
-  list-style-type: none;
-  padding-right: 8%;
-}
-table{
-  margin-left: auto;
-  margin-right: auto;
-  text-align: left;
-}
-
-td{
-    padding-left: 15px;
-    padding: auto;
-}
-
-.mainButton{
+.mainButton {
   border: 0.5em solid var(--orange);
-}
-
-.faq{
-  text-align: left;
-  padding-left: 30%;
-  padding-right: 20%;
-
-}
-
-.faq h3{
-  text-align: center;
 }
 
 .linklike {
@@ -212,4 +94,101 @@ td{
   cursor: pointer;
 }
 
-.linklike:focus { outline: 2px solid #0d6efd66; outline-offset: 2px; }
+.linklike:focus {
+  outline: 2px solid #0d6efd66;
+  outline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.gradient-background .actions button {
+  margin: 0;
+}
+
+.faq {
+  max-width: 860px;
+  margin: 4rem auto;
+  padding: 0 1rem;
+  text-align: left;
+}
+
+.faq h3 {
+  text-align: center;
+  color: var(--orange);
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
+}
+
+.faq details {
+  background: #0f1a28;
+  border: 1px solid rgba(231, 160, 66, 0.35);
+  border-radius: 10px;
+  margin: 0.75rem 0;
+  overflow: hidden;
+}
+
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq summary::after {
+  content: "▸";
+  font-size: 1rem;
+  transition: transform 0.18s ease;
+  color: var(--orange);
+  margin-left: 0.75rem;
+}
+
+.faq details[open] summary::after {
+  transform: rotate(90deg);
+}
+
+.faq summary:focus {
+  outline: 2px solid rgba(231, 160, 66, 0.65);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.faq .answer {
+  padding: 0.9rem 1.25rem 1.2rem;
+  color: #d8e2ef;
+  border-top: 1px solid rgba(231, 160, 66, 0.25);
+  line-height: 1.6;
+}
+
+@media (max-width: 520px) {
+  .faq {
+    margin: 3rem auto;
+  }
+
+  .faq h3 {
+    font-size: 1.75rem;
+  }
+
+  .faq summary {
+    padding: 0.9rem 1rem;
+  }
+
+  .faq .answer {
+    padding: 0.8rem 1rem 1.1rem;
+  }
+}

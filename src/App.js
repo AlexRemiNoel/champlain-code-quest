@@ -1,230 +1,140 @@
+import { useCallback, useState } from 'react';
 import './App.css';
-import { useState } from 'react';
 
-import PartnerLogos from './components/PartnerLogos';
-import Navbar from './layout/NavBar.jsx';
+import Navbar from './layout/NavBar';
+import Footer from './layout/Footer';
 
-function App() {
-  const routeChangeForm = () => {
-    const path = 'https://forms.gle/LXMuzZaSp6gxr9UX9';
-    window.location.href = path;
-  };
-  const routeChangeInsta = () => {
-    const path = 'https://www.instagram.com/champlain_programming_club/';
-    window.location.href = path;
-  };
-  const routeChangeDiscord = () => {
-    const path = 'https://discord.gg/P8rdJ4XmJB';
-    window.location.href = path;
-  };
+import PartnerLogos from './components/ui/PartnerLogos';
 
-  const [activeModal, setActiveModal] = useState(null);
+import AboutModal from './components/modals/AboutModal';
+import ScheduleModal from './components/modals/ScheduleModal';
+import ContactModal from './components/modals/ContactModal';
 
-  const openModal = modalId => {
-    setActiveModal(modalId);
-  };
+import LINKS from './constants/links';
 
-  const closeModal = () => {
-    setActiveModal(null);
-  };
+export default function App() {
+  const [openModal, setOpenModal] = useState(null);
 
-  const handleOutsideClick = e => {
-    if (e.target.classList.contains('modal')) {
-      closeModal();
-    }
-  };
+  const handleOpenModal = useCallback(name => setOpenModal(name), []);
+  const handleCloseModal = useCallback(() => setOpenModal(null), []);
+
+  const handleRegister = useCallback(() => {
+    window.open(LINKS.register, '_blank', 'noopener,noreferrer');
+  }, []);
+  const openDiscord = useCallback(() => {
+    window.open(LINKS.discord, '_blank', 'noopener,noreferrer');
+  }, []);
+  const openInstagram = useCallback(() => {
+    window.open(LINKS.instagram, '_blank', 'noopener,noreferrer');
+  }, []);
 
   return (
     <>
-      <head>
-        <link rel="icon" type="image/x-icon" href="./logo192.ico" />
-      </head>
-      <Navbar onOpenModal={openModal} onRegister={routeChangeForm} />
+      <Navbar onOpenModal={handleOpenModal} onRegister={handleRegister} />
+
       <div className="orange-background">
-        <img src="./logo.png" alt="Code Quest Logo" />
+        <img className="hero-logo" src="/logo.png" alt="Code Quest Logo" />
 
         <section className="gradient-background">
-          <div id="aboutModal" class="modal">
-            <div class="modal-content">
-              <span class="close-btn">&times;</span>
-              <h3>About the Hackathon</h3>
-              <p>
-                The Champlain Code Quest brings together the brightest minds to
-                collaborate, innovate, and code their way to victory. No
-                experience required — just bring your creativity and passion for
-                tech!
-              </p>
-            </div>
-          </div>
-
-          <div
-            id="aboutModal"
-            className="modal"
-            style={{ display: activeModal === 'aboutModal' ? 'flex' : 'none' }}
-            onClick={handleOutsideClick}
-          >
-            <div className="modal-content">
-              <span className="close-btn" onClick={closeModal}>
-                &times;
-              </span>
-              {
-                <div>
-                  <h4>About:</h4>
-                  <p>
-                    Code-Quest Champlain aims to be a beginner friendly event
-                    where college students can improve and put into practice
-                    their programming knowledge.
-                    <br />
-                    <br />{' '}
-                  </p>
-                  <h4>3 prize categories:</h4>
-                  <ul>
-                    <li>Best overall project</li>
-                    <li>Most creative project</li>
-                    <li>Best beginner project</li>
-                  </ul>
-                </div>
-              }
-            </div>
-          </div>
-
-          <div
-            id="scheduleModal"
-            className="modal"
-            style={{
-              display: activeModal === 'scheduleModal' ? 'flex' : 'none',
-            }}
-            onClick={handleOutsideClick}
-          >
-            <div className="modal-content">
-              <span className="close-btn" onClick={closeModal}>
-                &times;
-              </span>
-              {
-                <div>
-                  <h4>Schedule</h4>
-                  <h5>Thursday, November 13th, 2025</h5>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>Opening Ceremony:</td>
-                        <td>8:00 AM - 9:00 AM</td>
-                      </tr>
-                      <tr>
-                        <td>Coding Time:</td>
-                        <td>8:30 AM - 8:00 PM</td>
-                      </tr>
-                      <tr>
-                        <td>Lunch Break:</td>
-                        <td>12:00 PM - 13:00 PM</td>
-                      </tr>
-                      <tr>
-                        <td>Closing Ceremony:</td>
-                        <td>6:30 PM - 8:00 PM</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              }
-            </div>
-          </div>
-
-          <div
-            id="contactModal"
-            className="modal"
-            style={{
-              display: activeModal === 'contactModal' ? 'flex' : 'none',
-            }}
-            onClick={handleOutsideClick}
-          >
-            <div className="modal-content">
-              <span className="close-btn" onClick={closeModal}>
-                &times;
-              </span>
-              {
-                <div>
-                  <h4>Contact us:</h4>
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>Discord: </td>
-                        <td> Join our discord </td>
-                        <td>
-                          <button onClick={routeChangeDiscord}>here</button>
-                          <br />
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Instagram: </td>
-                        <td>Follow us </td>
-                        <td>
-                          <button onClick={routeChangeInsta}>here</button>
-                          <br />
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              }
-            </div>
-          </div>
-
-          <h2>Join on us November 13</h2>
+          <h2>Champlain Code Quest</h2>
           <p>
-            Join the Champlain Code Quest Hackathon — where innovation,
-            creativity, and teamwork collide. Build something incredible in 24
-            hours!
+            Build, learn, and compete—join us for a day of code and creativity.
           </p>
-          <button
-            className="mainButton"
-            onClick={() => openModal('aboutModal')}
-          >
-            Learn More
-          </button>
-          <button className="mainButton" onClick={routeChangeForm}>
-            Register Now
-          </button>
+
+          <div className="actions">
+            <button type="button" onClick={() => handleOpenModal('aboutModal')}>
+              Learn More
+            </button>
+            <button
+              type="button"
+              className="mainButton"
+              onClick={handleRegister}
+            >
+              Register Now
+            </button>
+          </div>
         </section>
       </div>
+
       <section className="info" id="about">
         <h3>About the Event</h3>
         <p>
-          The Champlain Code Quest brings together coders, students, innovators
-          and entrepreneur from across the college to tackle exciting
+          The Champlain Code Quest brings together coders, students, innovators,
+          and entrepreneurs from across the college to tackle exciting
           challenges, collaborate, and showcase their skills. Whether you're a
-          first-time programmer or a 10x enginner, there's a place for you here
-          to participate.
+          first-time programmer or a seasoned developer, there's a place for you
+          to learn, create, and grow.
         </p>
       </section>
-      <div className="faq" id="faq">
+
+      <section className="faq" id="faq">
         <h3>FAQ</h3>
-        <h4>How much does it cost?</h4>
-        <p>It’s totally free! and there will be free pizza!!</p>
-        <h4>What is the theme?</h4>
-        <p>The theme will be revealed during the opening ceremony</p>
-        <h4>Do I need to know how to program?</h4>
-        <p>
-          No, as long as you have even the slightest interest, you are welcome
-          to come to have fun. Workshops will be held to teach the participants
-          about various programming concepts during the hackathon itself!
-        </p>
-        <h4>How long will it last?</h4>
-        <p>The Code Quest will be held from 8am to 8pm</p>
-        <h4>HWhen and where is it?</h4>
-        <p>The Code Quest will be held at Champlain College on November 13th</p>
-      </div>
-      <section className="info" id="about">
-        <PartnerLogos
-          logos={[
-            { src: '/tail.png', alt: 'Tail-ED' },
-            { src: '/vimpact.png', alt: 'Visual Impact' },
-            { src: '/Kleff.png', alt: 'Kleff Hosting' },
-          ]}
-        />
+
+        <details>
+          <summary>How much does it cost?</summary>
+          <div className="answer">
+            It’s totally free — and yes, there will be free pizza!
+          </div>
+        </details>
+
+        <details>
+          <summary>What is the theme?</summary>
+          <div className="answer">
+            The theme will be revealed during the opening ceremony.
+          </div>
+        </details>
+
+        <details>
+          <summary>Do I need to know how to program?</summary>
+          <div className="answer">
+            No experience required! If you’re even a little bit curious, you’re
+            welcome. We’ll run beginner-friendly workshops during the hackathon
+            to help you learn.
+          </div>
+        </details>
+
+        <details>
+          <summary>How long will it last?</summary>
+          <div className="answer">
+            The event runs from <strong>8:00 AM to 8:00 PM</strong>.
+          </div>
+        </details>
+
+        <details>
+          <summary>When and where is it?</summary>
+          <div className="answer">
+            Champlain Code Quest takes place at{' '}
+            <strong>Champlain College</strong> on
+            <strong> November 13</strong>.
+          </div>
+        </details>
       </section>
-      <footer>© 2025 Champlain College • Code Quest Hackathon</footer>
+
+      <PartnerLogos
+        title="Our Partners"
+        logos={[
+          { src: '/logos/tail.png', alt: 'Tail-Ed', href: '#' },
+          { src: '/logos/kleff.png', alt: 'Kleff Hosting', href: '#' },
+          { src: '/logos/vimpact.png', alt: 'Visual Impact', href: '#' },
+        ]}
+      />
+
+      <Footer onOpenModal={handleOpenModal} onRegister={handleRegister} />
+
+      <AboutModal
+        open={openModal === 'aboutModal'}
+        onClose={handleCloseModal}
+      />
+      <ScheduleModal
+        open={openModal === 'scheduleModal'}
+        onClose={handleCloseModal}
+      />
+      <ContactModal
+        open={openModal === 'contactModal'}
+        onClose={handleCloseModal}
+        onOpenDiscord={openDiscord}
+        onOpenInstagram={openInstagram}
+      />
     </>
   );
 }
-
-export default App;
