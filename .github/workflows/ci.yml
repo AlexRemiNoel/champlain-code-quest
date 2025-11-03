@@ -2,7 +2,7 @@ name: Frontend CI/CD
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
     paths:
       - '**/*.js'
       - '**/*.jsx'
@@ -15,7 +15,7 @@ on:
       - 'nginx.conf'
       - '.github/workflows/**'
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
     paths:
       - '**/*.js'
       - '**/*.jsx'
@@ -99,4 +99,7 @@ jobs:
     needs: docker-publish
     steps:
       - name: Call Portainer webhook
-        run: curl -fsSL -X POST "${{ secrets.PORTAINER_WEBHOOK_URL }}"
+        run: |
+          curl -fsSL -X POST \
+            -H "X-CI-Secret: ${{ secrets.PORTAINER_WEBHOOK_SECRET }}" \
+            "${{ secrets.PORTAINER_WEBHOOK_URL }}"
