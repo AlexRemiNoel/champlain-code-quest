@@ -39,10 +39,30 @@ function App() {
       <header>
         <h1>Champlain Code Quest</h1>
         <div className="nav-links">
-          <a onClick={() => openModal('aboutModal')}>About</a>
-          <a onClick={() => openModal('scheduleModal')}>Schedule</a>
-          <a onClick={routeChangeForm}>Register</a>
-          <a onClick={() => openModal('contactModal')}>Contact</a>
+          <button
+            type="button"
+            className="linklike"
+            onClick={() => openModal('aboutModal')}
+          >
+            About
+          </button>
+          <button
+            type="button"
+            className="linklike"
+            onClick={() => openModal('scheduleModal')}
+          >
+            Schedule
+          </button>
+          <button type="button" className="linklike" onClick={routeChangeForm}>
+            Register
+          </button>
+          <button
+            type="button"
+            className="linklike"
+            onClick={() => openModal('contactModal')}
+          >
+            Contact
+          </button>
         </div>
       </header>
       <div className="orange-background">
