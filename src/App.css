@@ -12,91 +12,39 @@ body {
   color: var(--white);
 }
 
-.gradient-background {
+.orange-background {
+  background: var(--orange);
   text-align: center;
-  padding: 8rem 2rem;
-  background: linear-gradient(0deg, #162130 20%, #e7a042 90%);
+  position: relative;
+  padding-top: clamp(84px, 10vh, 120px); /* clears navbar space */
+  overflow-x: hidden;
 }
 
-.orange-background {
+/* Restore old logo scale and keep responsiveness */
+.hero-logo {
+  display: block;
+  width: 100%;
+  max-width: 520px;   /* ← this matches your old size closely */
+  height: auto;
+  margin: 0 auto 1.25rem;
+}
+
+.gradient-background {
   text-align: center;
-  background: #e7a042;
+  padding: clamp(3rem, 8vw, 8rem) 2rem;
+  background: linear-gradient(0deg, #162130 20%, #e7a042 90%);
 }
 
 .gradient-background h2 {
   font-family: 'Orbitron', sans-serif;
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin: 0 0 1rem;
 }
 
 .gradient-background p {
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto 2rem;
-}
-
-.gradient-background button {
-  background-color: var(--black);
-  border: 0.1em solid var(--orange);
-  color: var(--orange);
-  padding: 0.8rem 2rem;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.gradient-background button:hover {
-  background-color: var(--orange);
-  color: var(--black);
-}
-
-.info {
-  padding: 4rem 2rem;
-  text-align: center;
-  background: #162130;
-}
-
-.info h3 {
-  color: var(--orange);
-  margin-bottom: 1rem;
-  font-size: 2rem;
-}
-
-.info p {
-  max-width: 700px;
-  margin: 0 auto;
-  font-size: 1.1rem;
-  color: #ddd;
-}
-
-footer {
-  text-align: center;
-  padding: 1rem;
-  background-color: var(--gray);
-  border-top: 2px solid var(--orange);
-  font-size: 0.9rem;
-  color: #bbb;
-}
-
-.mainButton {
-  border: 0.5em solid var(--orange);
-}
-
-.linklike {
-  background: none;
-  border: 0;
-  padding: 0;
-  font: inherit;
-  color: #0d6efd;
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-.linklike:focus {
-  outline: 2px solid #0d6efd66;
-  outline-offset: 2px;
 }
 
 .actions {
@@ -110,7 +58,62 @@ footer {
 
 .gradient-background .actions button {
   margin: 0;
+  background-color: var(--black);
+  border: 0.1em solid var(--orange);
+  color: var(--orange);
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
+
+.gradient-background .actions button:hover {
+  background-color: var(--orange);
+  color: var(--black);
+}
+
+
+.info {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #162130;
+}
+.info h3 {
+  color: var(--orange);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+.info p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+.mainButton { border: 0.5em solid var(--orange); }
+
+.linklike {
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: #0d6efd;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.linklike:focus { outline: 2px solid #0d6efd66; outline-offset: 2px; }
+
+.actions {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+.gradient-background .actions button { margin: 0; }
 
 .faq {
   max-width: 860px;
@@ -118,14 +121,12 @@ footer {
   padding: 0 1rem;
   text-align: left;
 }
-
 .faq h3 {
   text-align: center;
   color: var(--orange);
   font-size: 2rem;
   margin-bottom: 1.25rem;
 }
-
 .faq details {
   background: #0f1a28;
   border: 1px solid rgba(231, 160, 66, 0.35);
@@ -133,7 +134,6 @@ footer {
   margin: 0.75rem 0;
   overflow: hidden;
 }
-
 .faq summary {
   list-style: none;
   cursor: pointer;
@@ -145,11 +145,7 @@ footer {
   justify-content: space-between;
   position: relative;
 }
-
-.faq summary::-webkit-details-marker {
-  display: none;
-}
-
+.faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
   content: "▸";
   font-size: 1rem;
@@ -157,17 +153,12 @@ footer {
   color: var(--orange);
   margin-left: 0.75rem;
 }
-
-.faq details[open] summary::after {
-  transform: rotate(90deg);
-}
-
+.faq details[open] summary::after { transform: rotate(90deg); }
 .faq summary:focus {
   outline: 2px solid rgba(231, 160, 66, 0.65);
   outline-offset: 2px;
   border-radius: 6px;
 }
-
 .faq .answer {
   padding: 0.9rem 1.25rem 1.2rem;
   color: #d8e2ef;
@@ -176,19 +167,8 @@ footer {
 }
 
 @media (max-width: 520px) {
-  .faq {
-    margin: 3rem auto;
-  }
-
-  .faq h3 {
-    font-size: 1.75rem;
-  }
-
-  .faq summary {
-    padding: 0.9rem 1rem;
-  }
-
-  .faq .answer {
-    padding: 0.8rem 1rem 1.1rem;
-  }
+  .faq { margin: 3rem auto; }
+  .faq h3 { font-size: 1.75rem; }
+  .faq summary { padding: 0.9rem 1rem; }
+  .faq .answer { padding: 0.8rem 1rem 1.1rem; }
 }
