@@ -242,6 +242,7 @@ function App() {
         <h3>Our Partner:</h3>
         <img src="./tail.png" alt="tail-ed" />
         <img src="./vimpact.png" alt="visual-impact" width={300} />
+        <img src="./Kleff.png" alt="kleff-hosting" />
       </section>
       <footer>© 2025 Champlain College • Code Quest Hackathon</footer>
     </>
