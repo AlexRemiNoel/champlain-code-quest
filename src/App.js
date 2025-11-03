@@ -116,6 +116,7 @@ export default function App() {
           { src: '/logos/tail.png', alt: 'Tail-Ed', href: '#' },
           { src: '/logos/kleff.png', alt: 'Kleff Hosting', href: '#' },
           { src: '/logos/vimpact.png', alt: 'Visual Impact', href: '#' },
+          { src: '/logos/synqo.png', alt: 'Synq', href: 'https://synqtogether.com' },
         ]}
       />
 
