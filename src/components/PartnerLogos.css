@@ -1,0 +1,49 @@
+.partners-section {
+  padding: 3rem 2rem;
+  background: transparent;
+  text-align: center;
+}
+
+.partners-section h3 {
+  color: var(--orange);
+  margin-bottom: 1.5rem;
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.partners-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.partner-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 1rem;
+  border: none;
+}
+
+.partner-img {
+  height: 85px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.partner-img:hover {
+  transform: scale(1.07);
+  opacity: 0.95;
+}
+
+@media (max-width: 600px) {
+  .partner-img {
+    height: 70px;
+  }
+}

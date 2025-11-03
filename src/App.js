@@ -1,6 +1,9 @@
 import './App.css';
 import { useState } from 'react';
 
+import PartnerLogos from './components/PartnerLogos';
+import Navbar from './layout/NavBar.jsx';
+
 function App() {
   const routeChangeForm = () => {
     const path = 'https://forms.gle/LXMuzZaSp6gxr9UX9';
@@ -36,35 +39,7 @@ function App() {
       <head>
         <link rel="icon" type="image/x-icon" href="./logo192.ico" />
       </head>
-      <header>
-        <h1>Champlain Code Quest</h1>
-        <div className="nav-links">
-          <button
-            type="button"
-            className="linklike"
-            onClick={() => openModal('aboutModal')}
-          >
-            About
-          </button>
-          <button
-            type="button"
-            className="linklike"
-            onClick={() => openModal('scheduleModal')}
-          >
-            Schedule
-          </button>
-          <button type="button" className="linklike" onClick={routeChangeForm}>
-            Register
-          </button>
-          <button
-            type="button"
-            className="linklike"
-            onClick={() => openModal('contactModal')}
-          >
-            Contact
-          </button>
-        </div>
-      </header>
+      <Navbar onOpenModal={openModal} onRegister={routeChangeForm} />
       <div className="orange-background">
         <img src="./logo.png" alt="Code Quest Logo" />
 
@@ -239,10 +214,13 @@ function App() {
         <p>The Code Quest will be held at Champlain College on November 13th</p>
       </div>
       <section className="info" id="about">
-        <h3>Our Partner:</h3>
-        <img src="./tail.png" alt="tail-ed" />
-        <img src="./vimpact.png" alt="visual-impact" width={300} />
-        <img src="./Kleff.png" alt="kleff-hosting" />
+        <PartnerLogos
+          logos={[
+            { src: '/tail.png', alt: 'Tail-ED' },
+            { src: '/vimpact.png', alt: 'Visual Impact' },
+            { src: '/Kleff.png', alt: 'Kleff Hosting' },
+          ]}
+        />
       </section>
       <footer>© 2025 Champlain College • Code Quest Hackathon</footer>
     </>
