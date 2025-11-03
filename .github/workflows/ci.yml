@@ -2,7 +2,7 @@ name: Frontend CI/CD
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, master ]
     paths:
       - '**/*.js'
       - '**/*.jsx'
@@ -15,7 +15,7 @@ on:
       - 'nginx.conf'
       - '.github/workflows/**'
   pull_request:
-    branches: [ main ]
+    branches: [ main, master ]
     paths:
       - '**/*.js'
       - '**/*.jsx'
