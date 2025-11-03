@@ -1,0 +1,19 @@
+services:
+  codequest:
+    image: ghcr.io/alexreminoel/champlain-code-quest-frontend:latest
+    container_name: codequest
+    expose:
+      - "80"
+    restart: unless-stopped
+    networks:
+      - web
+
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+
+networks:
+  web:
+    external: true
